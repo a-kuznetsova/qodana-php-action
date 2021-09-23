@@ -1,18 +1,18 @@
-## Qodana PHP Github Action
+# Qodana PHP
 
 ![Qodana EAP version alert](resources/eap-alert.png)
 
 **Qodana** is a code quality monitoring platform that allows you to evaluate the integrity of code you own, contract, or purchase. It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs plus continues adding project-level checks like clone detection and license audit.
 
-This Github Action is based on JetBrains/qodana-php docker image. It provides static analysis for PHP projects.
+Qodana PHP is based on PhpStorm and provides static analysis for PHP projects.
 
 **Table of Contents**
 
 <!-- toc -->
 
-- [Usage](#usage)
-- [Output Results](#output-results)
-- [License Summary](#license-summary)
+- [Qodana PHP](#qodana-php)
+  - [Usage](#usage)
+  - [License Summary](#license-summary)
 
 <!-- tocstop -->
 
@@ -29,44 +29,22 @@ This Github Action is based on JetBrains/qodana-php docker image. It provides st
 * `save-html-report` - Generate HTML report (default `false`)
 * `profile-name` - Name of a profile defined in project
 * `profile-path` - Absolute path to the profile file
-* `gradle-settings-path` - Provide path to gradle.properties file (for example: `/your/custom/path/gradle.properties`)
 * `additional-volumes` - Additional volumes to mount to qodana docker image
 * `additional-env-variables` - Additional environment variables to pass to qodana docker image
 
 ```yaml
-- name: Qodana - JVM Community
-  uses: JetBrains/qodana-jvm-community-action@v1.1.1
+- name: Qodana - PHP
+  uses: JetBrains/qodana-php-action@v1.1.1
 ```
 
 All action's inputs are optional. 
 ```yaml
-- name: Qodana - JVM Community
-  uses: JetBrains/qodana-jvm-community-action@v1.1.1
+- name: Qodana - PHP
+  uses: JetBrains/qodana-php-action@v1.1.1
   with:
       fail-threshold: 10
-      additional-env-variables: |
-            IDE_PROPERTIES_PROPERTY='-Didea.headless.enable.statistics=false;-Didea.required.plugins.id=JavaScript,org.intellij.grails'
 ```
-
-<!-- #TODO: update output results and License Summary -->
-
-<!-- ## Output Results
-
-An example of the Qodana command-line summary output:
-```
----- Qodana - Code Inspection ----
-
-2 problem(s) with Critical severity
- - Category(ies): General
-
-1 problem(s) with Moderate severity
- - Category(ies): Code style
-
----- Problems reported: 3 ----
-```
-
-Full Qodana results are available in the file `results-allProblems.json` located in the `results-dir` folder.
 
 ## License Summary
 
-By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html). -->
+By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html). 
